@@ -28,7 +28,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #e31837, #ff6b6b);
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   border-radius: 2px;
 }
 
@@ -158,7 +158,7 @@
 }
 
 .nav-button:hover:not(.disabled) {
-  background: #e31837;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   color: white;
   transform: translateY(-50%) scale(1.1);
 }
@@ -194,12 +194,12 @@
 }
 
 .dot:hover:not(.disabled) {
-  background: #e31837;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   transform: scale(1.2);
 }
 
 .dot.active {
-  background: #e31837;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   transform: scale(1.2);
 }
 

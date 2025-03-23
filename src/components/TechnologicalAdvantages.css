@@ -28,23 +28,23 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #e31837, #ff6b6b);
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   border-radius: 2px;
 }
 
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .advantage-card {
   background: white;
   border-radius: 15px;
-  padding: 30px;
+  padding: 2rem;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
   transition: all 0.4s ease;
   opacity: 0;
   transform: translateY(30px);
@@ -57,12 +57,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(227, 24, 55, 0.1) 0%,
-    rgba(255, 107, 107, 0.1) 100%
+    rgba(108, 92, 231, 0.1),
+    rgba(168, 164, 230, 0.1)
   );
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -70,7 +70,7 @@
 
 .advantage-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 40px rgba(108, 92, 231, 0.2);
 }
 
 .advantage-card:hover::before {
@@ -78,20 +78,18 @@
 }
 
 .advantage-icon {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-  display: inline-block;
-  transition: transform 0.4s ease;
-}
-
-.advantage-card:hover .advantage-icon {
-  transform: scale(1.1) rotate(5deg);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite;
 }
 
 .advantage-card h3 {
   font-size: 1.5rem;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   position: relative;
   display: inline-block;
 }
@@ -104,7 +102,7 @@
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  background: #e31837;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   transition: width 0.4s ease;
 }
 
@@ -153,16 +151,15 @@
 
   .advantages-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px;
+    gap: 1.5rem;
   }
 
   .advantage-card {
-    padding: 25px;
+    padding: 1.5rem;
   }
 
   .advantage-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .advantage-card h3 {
@@ -185,8 +182,4 @@
   100% {
     transform: translateY(0px);
   }
-}
-
-.advantage-icon {
-  animation: float 3s ease-in-out infinite;
 }
