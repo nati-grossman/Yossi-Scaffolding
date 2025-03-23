@@ -9,11 +9,10 @@ const Navbar: React.FC = () => {
   };
 
   const menuItems = [
-    { title: "דף הבית", href: "#home" },
-    { title: "שירותים", href: "#services" },
-    { title: "פרויקטים", href: "#projects" },
+    { title: "תכונות", href: "#features" },
     { title: "סוגי פיגומים", href: "#scaffolding-types" },
     { title: "צור קשר", href: "#contact" },
+    { title: "פוטר", href: "#footer" },
   ];
 
   return (

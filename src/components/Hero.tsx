@@ -10,8 +10,10 @@ const Hero: React.FC = () => {
           הפתרונות שלנו לכל פרויקט בנייה – מהירים, בטוחים ומקצועיים
         </p>
         <div className="hero-buttons">
-          <button className="primary-button">קבל הצעת מחיר חינם</button>
-          <button className="secondary-button">למידע נוסף</button>
+          <a href="#contact" className="hero-button">
+            <span className="button-content">צור קשר</span>
+            <span className="button-icon">→</span>
+          </a>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
-.services {
+.services-section {
   padding: 100px 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow: hidden;
 }
 
 .services-container {
@@ -9,15 +10,18 @@
   padding: 0 20px;
 }
 
-.services h2 {
+.services-section h2 {
   text-align: center;
   font-size: 2.5rem;
   color: #2c3e50;
   margin-bottom: 60px;
   position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-.services h2::after {
+.services-section h2::after {
   content: "";
   position: absolute;
   bottom: -15px;
@@ -30,12 +34,16 @@
 }
 
 .services-description {
-  font-size: 1.2rem;
+  text-align: center;
   color: #666;
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-right: auto;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 800px;
   margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards 0.2s;
 }
 
 .services-grid {
@@ -52,6 +60,9 @@
   text-align: center;
   box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
   transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .service-card:hover {
@@ -65,25 +76,74 @@
   background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite;
 }
 
 .service-card h3 {
   font-size: 1.5rem;
   color: #2c3e50;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.service-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+  transition: width 0.4s ease;
+}
+
+.service-card:hover h3::after {
+  width: 60px;
 }
 
 .service-card p {
   color: #666;
   line-height: 1.6;
+  font-size: 1.1rem;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.service-card:hover p {
+  color: #444;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @media (max-width: 768px) {
-  .services {
+  .services-section {
     padding: 60px 0;
   }
 
-  .services h2 {
+  .services-section h2 {
     font-size: 2rem;
     margin-bottom: 40px;
   }
@@ -99,5 +159,13 @@
 
   .service-icon {
     font-size: 2.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 1rem;
   }
 }

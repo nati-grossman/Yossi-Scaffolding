@@ -20,22 +20,24 @@
 }
 
 .footer-section h3 {
-  color: #ecf0f1;
+  color: #ffffff;
   font-size: 1.8rem;
   margin-bottom: 2rem;
   font-weight: 600;
   position: relative;
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 .footer-section h3::after {
   content: "";
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 2px;
 }
 
@@ -43,48 +45,75 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
   font-size: 1.2rem;
-  color: #bdc3c7;
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  background: rgba(52, 73, 94, 0.3);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  border: 1px solid rgba(52, 73, 94, 0.2);
 }
 
 .contact-list li:hover {
-  color: #ecf0f1;
+  transform: translateY(-3px);
+  background: rgba(52, 73, 94, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(52, 73, 94, 0.4);
 }
 
 .contact-list .icon {
-  margin-left: 1rem;
   font-size: 1.4rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(52, 73, 94, 0.4);
   padding: 0.8rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  min-width: 45px;
+  height: 45px;
+  border: 1px solid rgba(52, 73, 94, 0.3);
 }
 
 .contact-list li:hover .icon {
-  background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
-  transform: translateY(-3px);
+  background: rgba(52, 73, 94, 0.6);
+  transform: scale(1.1);
+  border-color: rgba(52, 73, 94, 0.5);
+}
+
+.contact-list li span:not(.icon) {
+  transition: all 0.3s ease;
+}
+
+.contact-list li:hover span:not(.icon) {
+  color: #ffffff;
+  transform: translateX(-5px);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(52, 73, 94, 0.2);
 }
 
 .footer-bottom p {
   margin: 0;
   font-size: 1rem;
-  color: #bdc3c7;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 768px) {
@@ -103,11 +132,13 @@
 
   .contact-list li {
     font-size: 1.1rem;
-    margin-bottom: 1.2rem;
+    padding: 0.6rem 1.2rem;
   }
 
   .contact-list .icon {
     font-size: 1.2rem;
     padding: 0.6rem;
+    min-width: 40px;
+    height: 40px;
   }
 }
