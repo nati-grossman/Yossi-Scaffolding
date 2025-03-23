@@ -11,15 +11,15 @@ const Navbar: React.FC = () => {
   const menuItems = [
     { title: "תכונות", href: "#features" },
     { title: "סוגי פיגומים", href: "#scaffolding-types" },
-    { title: "צור קשר", href: "#contact" },
-    { title: "פוטר", href: "#footer" },
+    { title: "שליחת הודעה", href: "#contact" },
+    { title: "פרטי התקשרות", href: "#footer" },
   ];
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="#home">פיגומים ישראל</a>
+          <a href="#home">גרוסמן פיגומים </a>
         </div>
 
         <button className="navbar-toggle" onClick={toggleMenu}>

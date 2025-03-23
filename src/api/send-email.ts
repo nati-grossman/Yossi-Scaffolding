@@ -1,31 +1,27 @@
 import nodemailer from "nodemailer";
-import { NextApiRequest, NextApiResponse } from "next";
+import express from "express";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+const router = express.Router();
 
+router.post("/send-email", async (req, res) => {
   const { name, phone, email, message } = req.body;
 
   // Create a transporter using SMTP
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // Replace with your SMTP host
-    port: 587,
-    secure: false,
+    service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Your email
-      pass: process.env.EMAIL_PASS, // Your email password or app-specific password
+      type: "OAuth2",
+      user: process.env.EMAIL_USER,
+      clientId: process.env.GMAIL_CLIENT_ID,
+      clientSecret: process.env.GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
     },
   });
 
   // Email content
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: "your-email@example.com", // Replace with your email
+    to: "natn0542489516@gmail.com",
     subject: "הודעה חדשה מהאתר",
     html: `
       <h2>הודעה חדשה מהאתר</h2>
@@ -39,9 +35,11 @@ export default async function handler(
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Email sent successfully" });
+    res.status(200).json({ message: "ההודעה נשלחה בהצלחה" });
   } catch (error) {
     console.error("Error sending email:", error);
-    res.status(500).json({ message: "Error sending email" });
+    res.status(500).json({ error: "שגיאה בשליחת ההודעה" });
   }
-}
+});
+
+export default router;

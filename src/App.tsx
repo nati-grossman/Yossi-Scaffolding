@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -7,7 +6,6 @@ import ProjectCarousel from "./components/ProjectCarousel";
 import ScaffoldingTypes from "./components/ScaffoldingTypes";
 import CustomerTestimonials from "./components/CustomerTestimonials";
 import Features from "./components/Features";
-import ProjectShowcase from "./components/ProjectShowcase";
 import TechnologicalAdvantages from "./components/TechnologicalAdvantages";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -24,7 +22,6 @@ function App() {
         <ScaffoldingTypes />
         <CustomerTestimonials />
         <Features />
-        <ProjectShowcase />
         <TechnologicalAdvantages />
         <Contact />
       </main>

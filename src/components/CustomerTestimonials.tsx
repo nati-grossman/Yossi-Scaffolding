@@ -88,7 +88,7 @@ const CustomerTestimonials: React.FC = () => {
             onClick={prevTestimonial}
             aria-label="Previous testimonial"
           >
-            ❮
+            ❯
           </button>
           <div
             className={`testimonial-card ${isAnimating ? "animating" : ""}`}
@@ -122,7 +122,7 @@ const CustomerTestimonials: React.FC = () => {
             onClick={nextTestimonial}
             aria-label="Next testimonial"
           >
-            ❯
+            ❮
           </button>
         </div>
         <div className="testimonial-dots">

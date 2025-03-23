@@ -3,16 +3,16 @@ import "./Contact.css";
 
 interface FormData {
   name: string;
-  phone: string;
   email: string;
+  phone: string;
   message: string;
 }
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    phone: "",
     email: "",
+    phone: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("http://localhost:3001/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,17 +41,17 @@ const Contact: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error("שגיאה בשליחת ההודעה");
+        throw new Error("Failed to send message");
       }
 
       alert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       setFormData({
         name: "",
-        phone: "",
         email: "",
+        phone: "",
         message: "",
       });
-    } catch (error) {
+    } catch (error: unknown) {
       alert("אירעה שגיאה בשליחת ההודעה. אנא נסה שוב מאוחר יותר.");
     } finally {
       setIsSubmitting(false);
@@ -61,58 +61,61 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
-        <div className="contact-form-container">
-          <h2>צור קשר</h2>
-          <p className="contact-description">השאירו פרטים ונחזור אליכם בהקדם</p>
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="שם מלא"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="טלפון"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="אימייל"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="הודעה"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="submit-button"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "שולח..." : "שלח"}
-            </button>
-          </form>
-        </div>
+        <h2 className="animate-on-scroll">צור קשר</h2>
+        <p className="contact-description animate-on-scroll">
+          צרו איתנו קשר לקבלת הצעת מחיר או כל שאלה אחרת
+        </p>
+        <form
+          className="contact-form animate-on-scroll"
+          onSubmit={handleSubmit}
+        >
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="שם מלא"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="אימייל"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="טלפון"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <textarea
+              name="message"
+              placeholder="הודעה"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="submit-button"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "שולח..." : "שלח הודעה"}
+          </button>
+        </form>
       </div>
     </section>
   );

@@ -34,7 +34,7 @@
 
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding: 1rem;
 }
@@ -140,6 +140,12 @@
 }
 
 /* Responsive design */
+@media (max-width: 1200px) {
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .technological-advantages {
     padding: 60px 0;

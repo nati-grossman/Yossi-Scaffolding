@@ -76,7 +76,7 @@ const scaffoldingTypes: ScaffoldingType[] = [
 
 const ScaffoldingTypes: React.FC = () => {
   return (
-    <section className="scaffolding-types">
+    <section id="scaffolding-types" className="scaffolding-types">
       <div className="scaffolding-container">
         <h2>סוגי פיגומים</h2>
         <p className="scaffolding-description">
